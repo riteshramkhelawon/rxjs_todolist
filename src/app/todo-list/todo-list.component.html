@@ -1,0 +1,17 @@
+<div class="conatiner">
+    <h1>Items</h1>
+    <table class="table table-striped">
+        <tbody>
+            <app-todo-item *ngFor="let itemFromList of (items$ | async); let i = index" [taskNumber]="(i+1)" [item]="itemFromList"></app-todo-item>
+        </tbody>
+    </table>
+
+    <!-- <app-todo-item *ngFor="let itemFromList of (items$ | async)" [item]="itemFromList"></app-todo-item> -->
+    <hr width="50%">
+
+    <h1>Add new item</h1>
+    <div class="w-50 input-group mb-3">
+        <input class="form-control" type="text" [(ngModel)]="newItemText">
+        <button class="btn btn-primary" (click)="onAddItem()">Add</button>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.item {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: capitalize;
+  margin: 10px;
+  border-radius: 25%;
+}
+
+.task-number {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 25%;
+}
+
+.remove-btn:hover {
+  background-color: white;
+  color: red;
+  font-weight: bold;
+ 
+}
+
+.checkbox {
+  width: 15% ;
+  margin: 10px;
+}
+
+.desc {
+  width: 70% ;
+}
+
+.remove {
+  width: 20% ;
+}
+
+tr {
+  border-radius: 25%;
+}

@@ -1,0 +1,8 @@
+<div class="item">
+    <tr>
+      <td class="task-number">{{ taskNumber }}</td>
+      <td class="desc">{{ item.description }}</td>
+      <td class="checkbox"><input type="checkbox" [ngModel]="item.isCompleted" (change)="onCheckboxToggled()"></td>
+      <td><button class="remove-btn text-center" (click)="onRemoveTask()">x</button></td>
+    </tr>
+</div>
