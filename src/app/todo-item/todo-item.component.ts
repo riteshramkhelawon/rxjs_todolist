@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TodoItem } from '../store/todo-item';
-import { ChangeItemState } from '../store/todo-list.actions';
-import { RemoveItem } from '../store/todo-list.actions';
+import { ChangeItemState, EditItemNote, RemoveItem } from '../store/todo-list.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -16,7 +15,7 @@ export class TodoItemComponent implements OnInit {
 
   constructor(private store: Store) { }
   @Input() taskNumber: number = 0;
-  
+  editedNote: string = (this._item) ? this._item.notes : 'note';
 
   @Input()
   get item(): TodoItem {
@@ -38,5 +37,10 @@ export class TodoItemComponent implements OnInit {
   onRemoveTask(): void {
     // alert('Are you sure you want to delete this task?');
     this.store.dispatch(RemoveItem({ item: this.item }));
+  }
+
+  onEditNote(): void {
+    console.log('new note: '+ this.editedNote);
+    this.store.dispatch(EditItemNote({ item: this.item, notes: this.editedNote }))
   }
 }

@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   items$: Observable<TodoItem[]>;
 
   newItemText = '';
-  
+  newItemNotes = '';
 
   constructor(private store: Store) {
     this.items$ = store.pipe(select(todoItems));
@@ -26,7 +26,8 @@ export class TodoListComponent implements OnInit {
   }
 
   onAddItem(): void {
-    this.store.dispatch(AddItem({ item: { isCompleted: false, description: this.newItemText } }));
+    this.store.dispatch(AddItem({ item: { isCompleted: false, description: this.newItemText, notes: this.newItemNotes } }));
     this.newItemText = '';
+    this.newItemNotes = '';
   }
 }
