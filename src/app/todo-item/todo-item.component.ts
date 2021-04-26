@@ -15,7 +15,7 @@ export class TodoItemComponent implements OnInit {
 
   constructor(private store: Store) { }
   @Input() taskNumber: number = 0;
-  editedNote: string = (this._item) ? this._item.notes : 'note';
+  editedNote: string = '';
 
   @Input()
   get item(): TodoItem {
@@ -25,7 +25,9 @@ export class TodoItemComponent implements OnInit {
 
     return this._item;
   }
-  set item(newValue: TodoItem) { this._item = newValue; }
+
+  set item(newValue: TodoItem) { this._item = newValue; this.editedNote = this.item.notes }
+
 
   ngOnInit(): void {
   }
@@ -40,7 +42,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   onEditNote(): void {
-    console.log('new note: '+ this.editedNote);
+    console.log('new note: '+ this.item.notes);
     this.store.dispatch(EditItemNote({ item: this.item, notes: this.editedNote }))
   }
 }

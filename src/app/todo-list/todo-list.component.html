@@ -1,10 +1,14 @@
 <div class="conatiner">
     <h1>Items</h1>
+    <div *ngIf="(items$ | async)!.length == 0">
+       <h2>No tasks added yet</h2>
+    </div>
     <table class="table table-striped">
         <tbody>
             <app-todo-item *ngFor="let itemFromList of (items$ | async); let i = index" [taskNumber]="(i+1)" [item]="itemFromList"></app-todo-item>
         </tbody>
-    </table>
+    </table> 
+    
 
     <!-- <app-todo-item *ngFor="let itemFromList of (items$ | async)" [item]="itemFromList"></app-todo-item> -->
     <hr width="50%">
